@@ -1,10 +1,10 @@
-export interface Group {
+export interface TGroup {
   id: number;
   columnType: "left" | "right";
   name: string;
 }
 
-export interface Question {
+export interface TQuestion {
   id: number;
   groupId: number;
   title: string;
@@ -13,15 +13,15 @@ export interface Question {
 
 export interface FaqData {
   groups: {
-    left: Group[];
-    right: Group[];
+    left: TGroup[];
+    right: TGroup[];
   };
-  questions: Question[];
+  questions: TQuestion[];
 }
 
-export interface GrouppedFaqData {
-  [key: string]: {
-    name: string;
-    questions: Question[];
-  };
-}
+// export interface GrouppedFaqData {
+//   [key: string]: {
+//     name: string;
+//     questions: TQuestion[];
+//   };
+// }
