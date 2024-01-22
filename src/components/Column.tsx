@@ -23,14 +23,3 @@ export const Column = ({
     </div>
   );
 };
-// groupQuestions={filterQuestions(group, questions).filter((el) => {
-//   return query.toLowerCase() === ""
-//     ? el
-//     : el.title.toLowerCase().includes(query.toLowerCase());
-// })}
-
-// groupQuestions={filterQuestions(group, questions).filter((el) =>
-//   keys.some((key) =>
-//     el[key].toLowerCase().includes(query.toLowerCase())
-//   )
-// )}

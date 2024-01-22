@@ -18,10 +18,3 @@ export interface FaqData {
   };
   questions: TQuestion[];
 }
-
-// export interface GrouppedFaqData {
-//   [key: string]: {
-//     name: string;
-//     questions: TQuestion[];
-//   };
-// }
