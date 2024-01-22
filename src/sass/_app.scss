@@ -1,1 +1,46 @@
+.content-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+
+    .search {
+      background-color: transparent;
+      border: 1px solid $secondaryColor;
+      width: 95%;
+      padding: 1rem;
+      margin: 0px 0px 18px 0px;
+      border-radius: 0.5rem;
+      &:focus {
+        outline: 1px solid $accentColor;
+      }
+      @include md() {
+        max-width: 2000px;
+      }
+    }
+
+    .columns-wrapper {
+      padding-left: 18px;
+      align-items: start;
+      width: 100%;
+
+      @include md() {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 1800px;
+      }
+    }
+    .noresults {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+    }
+  }
+}
