@@ -11,10 +11,13 @@ export const GroupQuestions = ({
   return (
     <>
       {groupQuestions?.length ? (
-        <div>
+        <div className="group-questions" key={group?.id}>
           <h2>{group?.name}</h2>
+
           {groupQuestions?.map((question: TQuestion) => (
-            <Question key={question.id} question={question} />
+            <ul className="group-questions-ul" key={question.id}>
+              <Question question={question} />
+            </ul>
           ))}
         </div>
       ) : null}
