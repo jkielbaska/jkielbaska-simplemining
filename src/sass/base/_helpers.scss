@@ -1,11 +1,21 @@
-.not-done {
-  background-color: $secondaryColor;
+.hover {
+  &:hover {
+    color: $accentColor;
+  }
 }
 
-.done {
-  background-color: $doneColor;
+.open {
+  color: $openColor;
+}
+
+.closed {
+  color: $textColor;
 }
 
 .icon {
   width: 2.5rem;
+}
+
+.bold {
+  font-weight: bold;
 }

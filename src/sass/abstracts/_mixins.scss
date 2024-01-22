@@ -1,6 +1,7 @@
 @mixin reset-button {
   border: none;
   outline: none;
+  background: none;
   cursor: pointer;
 }
 
@@ -16,6 +17,12 @@
 
 @mixin sm {
   @media (min-width: #{$screen-sm}) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media (min-width: #{$screen-md}) {
     @content;
   }
 }
