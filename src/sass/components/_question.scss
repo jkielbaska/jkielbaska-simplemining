@@ -1,0 +1,32 @@
+.question-li {
+  background-color: $secondaryColor;
+  width: 95%;
+  border-radius: 7px;
+  padding: 0px 12px 12px 12px;
+
+  .question {
+    @include reset-button;
+    width: 100%;
+    font-size: 18px;
+    height: auto;
+    min-height: 60px;
+    padding: 12px 12px 0px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+
+    @include sm() {
+      height: 60px;
+      &:hover {
+        color: $accentColor;
+      }
+    }
+  }
+
+  .answer {
+    height: 0px;
+    overflow: hidden;
+    transition: height ease 0.5s;
+  }
+}
