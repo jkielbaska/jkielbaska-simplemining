@@ -1,3 +1,5 @@
+import { BrowserRouter as Router } from "react-router-dom";
+
 import { useFaq } from "./hooks/useFaq";
 import { useFilteredFaq } from "./hooks/useFilteredFaq";
 
@@ -12,44 +14,46 @@ function App() {
   );
 
   return (
-    <div className="content-wrapper">
-      <Header />
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : error ? (
-        <p>Error</p>
-      ) : (
-        <div className="main">
-          <input
-            className="search"
-            placeholder="Search articles..."
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            type="search"
-          />
-          {filteredFaqQuestions?.length ? (
-            <div className="columns-wrapper">
-              <Column
-                groups={faqData?.groups.left}
-                questions={filteredFaqQuestions}
-              />
-              <Column
-                groups={faqData?.groups.right}
-                questions={filteredFaqQuestions}
-              />
-            </div>
-          ) : (
-            <div className="noresults">
-              <h2>No results found</h2>
-              <span>
-                make sure if spellng is correct or try with different keywords
-              </span>
-            </div>
-          )}
-        </div>
-      )}
-      <Footer />
-    </div>
+    <Router>
+      <div className="content-wrapper">
+        <Header />
+        {isLoading ? (
+          <p>Loading...</p>
+        ) : error ? (
+          <p>Error</p>
+        ) : (
+          <div className="main">
+            <input
+              className="search"
+              placeholder="Search articles..."
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              type="search"
+            />
+            {filteredFaqQuestions?.length ? (
+              <div className="columns-wrapper">
+                <Column
+                  groups={faqData?.groups.left}
+                  questions={filteredFaqQuestions}
+                />
+                <Column
+                  groups={faqData?.groups.right}
+                  questions={filteredFaqQuestions}
+                />
+              </div>
+            ) : (
+              <div className="noresults">
+                <h2>No results found</h2>
+                <span>
+                  make sure if spellng is correct or try with different keywords
+                </span>
+              </div>
+            )}
+          </div>
+        )}
+        <Footer />
+      </div>
+    </Router>
   );
 }
 {
