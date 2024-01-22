@@ -18,9 +18,11 @@ function App() {
       <div className="content-wrapper">
         <Header />
         {isLoading ? (
-          <p>Loading...</p>
+          <div className="noselect-center">
+            <span className="spinner" />
+          </div>
         ) : error ? (
-          <p>Error</p>
+          <div className="noselect-center">Error</div>
         ) : (
           <div className="main">
             <input
@@ -42,7 +44,7 @@ function App() {
                 />
               </div>
             ) : (
-              <div className="noresults">
+              <div className="noselect-center">
                 <h2>No results found</h2>
                 <span>
                   make sure if spellng is correct or try with different keywords
@@ -56,30 +58,4 @@ function App() {
     </Router>
   );
 }
-{
-  /* <Group grouppedFaqData={grouppedFaqData.left} />
-    <Group grouppedFaqData={grouppedFaqData.right} /> */
-}
 export default App;
-// return keys.some((key) =>
-// item[key].toLowerCase().includes(query.toLowerCase())
-// );
-
-//every word in input should be included in title or content
-//
-// const filteredFaqQuestions = useMemo(() => {
-//   if (!query) {
-//     return faqData?.questions;
-//   }
-
-//   const queryWords = query.toLowerCase().split(" ");
-
-//   return faqData?.questions.filter((item) => {
-//     const titleWords = item.title.toLowerCase();
-//     const contentWords = item.content.toLowerCase();
-
-//     return queryWords.every(
-//       (word) => titleWords.includes(word) || contentWords.includes(word)
-//     );
-//   });
-// }, [query, faqData]);
