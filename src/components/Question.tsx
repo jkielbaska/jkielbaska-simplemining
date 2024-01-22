@@ -1,4 +1,5 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import dompurify from "dompurify";
 
 import { TQuestion } from "../types/faqData";
@@ -7,12 +8,19 @@ import chevron from "../assets/icons8-chevron-30.png";
 
 export const Question = ({ question }: { question: TQuestion }) => {
   const [isOpen, setIsOpen] = useState(false);
-
   const parentRef = useRef<HTMLDivElement>(null!);
+
+  const location = useLocation();
+  const idFromUrl = location.hash.slice(1);
+
+  useEffect(() => {
+    question.id.toString() === idFromUrl ? setIsOpen(true) : setIsOpen(false);
+  }, [idFromUrl, question.id]);
 
   const handleOpening = () => {
     setIsOpen((prevState: boolean) => !prevState);
   };
+
   return (
     <li className="question-li" id={question.id.toString()}>
       <div>
@@ -50,47 +58,3 @@ export const Question = ({ question }: { question: TQuestion }) => {
     </li>
   );
 };
-
-// import React, { useState } from "react";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import {
-//   faChevronUp,
-//   faChevronDown
-// } from "@fortawesome/fontawesome-free-solid";
-// interface IProps {
-//   open?: boolean;
-//   title: string;
-// }
-
-// const Collapsible: React.FC<IProps> = ({ open, children, title }) => {
-//   const [isOpen, setIsOpen] = useState(open);
-
-//   const handleFilterOpening = () => {
-//     setIsOpen((prev) => !prev);
-//   };
-
-//   return (
-//     <>
-//       <div className="card">
-//         <div>
-//           <div className="p-3 border-bottom d-flex justify-content-between">
-//             <h6 className="font-weight-bold">{title}</h6>
-//             <button type="button" className="btn" onClick={handleFilterOpening}>
-//               {!isOpen ? (
-//                 <FontAwesomeIcon icon={faChevronDown} />
-//               ) : (
-//                 <FontAwesomeIcon icon={faChevronUp} />
-//               )}
-//             </button>
-//           </div>
-//         </div>
-
-//         <div className="border-bottom">
-//           <div>{isOpen && <div className="p-3">{children}</div>}</div>
-//         </div>
-//       </div>
-//     </>
-//   );
-// };
-
-// export default Collapsible;
