@@ -1,4 +1,4 @@
-#jkielbaska-simplemining task
+# jkielbaska-simplemining task
 
 Hello :)
 
