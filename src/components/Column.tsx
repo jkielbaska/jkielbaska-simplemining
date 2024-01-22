@@ -12,7 +12,7 @@ export const Column = ({
     questions ? questions.filter((el) => el.groupId === group.id) : [];
 
   return (
-    <div>
+    <div className="column">
       {groups?.map((group) => (
         <GroupQuestions
           group={group}
